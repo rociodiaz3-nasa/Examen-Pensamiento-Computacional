@@ -7,9 +7,9 @@ La propuesta se adscribe al minimalismo digital y el pop art contemporáneo. Se 
 
 Referente histórico (Videojuegos Arcade): Se inspira directamente en las mecánicas clásicas de riesgo vs beneficio de los juegos arcade y sistemas de apuestas mecánicos, donde el jugador debe ponderar la avaricia frente a la pérdida total de los puntos acumulados.
 
-Link de P5js editable: https://editor.p5js.org/rocio.diaz3/sketches/dE06yuYpk
+Link de P5js editable: https://editor.p5js.org/rocio.diaz3/sketches/Tfwl1ZpAZ
 
-Link de P5js solo vista: https://editor.p5js.org/rocio.diaz3/full/dE06yuYpk
+Link de P5js solo vista: https://editor.p5js.org/rocio.diaz3/full/Tfwl1ZpAZ
 
 <img width="595" height="595" alt="image" src="https://github.com/user-attachments/assets/e68c0e88-1c78-4354-a963-a9b1f400cbe3" />
 
