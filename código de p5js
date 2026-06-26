@@ -1,4 +1,5 @@
-let estado = 0; // 0: Inicio, 1: Juego, 2: Perdiste
+// 0: Inicio, 1: Juego, 2: Perdiste
+let estado = 0; 
 let porcentajeAmor = 0; // El porcentaje de carga (0 a 200)
 let sonidoPop; // Audio
 
@@ -49,6 +50,13 @@ function pantallaJuego() {
     textSize(20);
     text("<3", 160 + (i * 90), 50);
   }
+  
+    // Fila de 4 símbolos fijos abajo 
+  fill(255);
+  textSize(20);
+  for (let i = 0; i < 4 ; i++) {
+    text("<3", 160 + (i * 90), 25);
+  }
 
   // Dibujo de corazón
   noStroke();
@@ -66,13 +74,6 @@ function pantallaJuego() {
   fill(255);
   textSize(30);
   text(floor(porcentajeAmor) + "% de Amor :D", width / 2, height - 100);
-
-  // Fila de 4 símbolos fijos abajo 
-  fill(255);
-  textSize(18);
-  for (let i = 0; i < 4 ; i++) {
-    text("<3", 160 + i * 90, height - 50);
-  }
 
   // Si llega a 100% o más muestra el menú de escape
   if (porcentajeAmor >= 100) {
