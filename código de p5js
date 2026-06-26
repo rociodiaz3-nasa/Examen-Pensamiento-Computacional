@@ -14,7 +14,7 @@ function setup() {
 }
 
 function draw() {
-  background(252, 126, 126); //Fondo general rosado
+  background(252, 126, 126); // Fondo general rosado
 
   // Condicionales
   if (estado == 0) {
@@ -39,32 +39,40 @@ function pantallaInicio() {
 
 // Pantalla de juego
 function pantallaJuego() {
+
   // Aumento de tamaño del corazón
   let tamano = map(porcentajeAmor, 0, 200, 70, 330);
 
-  // Fila de 4 símbolos fijos arriba
+  // Fila de 4 símbolos fijos arriba 
   for (let i = 0; i < 4; i++) {
     fill(255);
     textSize(20);
     text("<3", 160 + (i * 90), 50);
   }
-  
+
   // Dibujo de corazón
   noStroke();
   fill(255, 50, 100);
-  
+
   push();
-  translate(width / 2, height / 2); 
-  rotate(radians(45)); 
-  rect(0, 0, tamano, tamano); 
-  ellipse(0, -tamano / 2, tamano, tamano); 
-  ellipse(-tamano / 2, 0, tamano, tamano); 
+  translate(width / 2, height / 2);
+  rotate(radians(45));
+  rect(0, 0, tamano, tamano);
+  ellipse(0, -tamano / 2, tamano, tamano);
+  ellipse(-tamano / 2, 0, tamano, tamano);
   pop();
 
   // Texto que muestra el porcentaje en pantalla
   fill(255);
   textSize(30);
   text(floor(porcentajeAmor) + "% de Amor :D", width / 2, height - 100);
+
+  // Fila de 4 símbolos fijos abajo 
+  fill(255);
+  textSize(18);
+  for (let i = 0; i < 4 ; i++) {
+    text("<3", 160 + i * 90, height - 50);
+  }
 
   // Si llega a 100% o más muestra el menú de escape
   if (porcentajeAmor >= 100) {
@@ -95,32 +103,33 @@ function mousePressed() {
 }
 
 function keyPressed() {
-  if (estado == 1 && keyCode == 32) { 
-    porcentajeAmor = porcentajeAmor + 10; 
+  if (estado == 1 && keyCode == 32) {
+    porcentajeAmor = porcentajeAmor + 10;
 
-    // sonido pop del corazón cuando se agranda
-    sonidoPop.play(); 
-    
+    // Sonido pop del corazón cuando se agranda
+    sonidoPop.play();
+
     if (porcentajeAmor > 100) {
-      let suerte = random(0, 10); 
+      let suerte = random(0, 10);
       if (suerte > 7 || porcentajeAmor >= 200) {
-        estado = 2; 
+        estado = 2;
       }
     }
-  } 
-  
+  }
+
   // Retirarse de forma segura con la letra 'R' o 'r'
   if (estado == 1 && (key == 'r' || key == 'R')) {
+    
     // Solo si el porcentaje alcanzó o superó el 100%
     if (porcentajeAmor >= 100) {
-      porcentajeAmor = 0; 
-      estado = 0;         
+      porcentajeAmor = 0;
+      estado = 0;
     }
   }
-  
+
   // volver al menu principal
-  if (estado == 2 && keyCode == 13) { 
-    porcentajeAmor = 0; 
-    estado = 0; 
+  if (estado == 2 && keyCode == 13) {
+    porcentajeAmor = 0;
+    estado = 0;
   }
 }
