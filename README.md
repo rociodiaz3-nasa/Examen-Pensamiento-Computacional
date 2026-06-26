@@ -1,6 +1,11 @@
-Desarrollo de examen Pensamiento Computacional
+# MEDIDOR DE AMOR!
+## Desarrollo de examen Pensamiento Computacional
 
 Se estructuró un modelo de tres estados que controla el flujo de pantallas y un algoritmo que traduce el porcentaje acumulado directamente en el tamaño en píxeles del corazón, haciéndolo crecer de forma proporcional. Además, el programa incluye una mecánica de riesgo basada en probabilidades aleatorias que se activa al superar la meta base: cada pulsación extra aumenta el peligro de reiniciar el sistema por un exceso de volumen, desafiando al usuario a decidir entre seguir arriesgándose o usar un comando de escape seguro para volver al menú de forma controlada.
+
+La propuesta se adscribe al minimalismo digital y el pop art contemporáneo. Se utiliza una paleta de color plana y reducida (predominancia de tonos rosados, rojos y blancos) junto con una economía de formas geométricas puras (el corazón construido vectorialmente a partir de un rombo y dos elipses). Esta corriente busca eliminar cualquier distracción visual innecesaria para que el foco absoluto del usuario esté en la transformación geométrica del elemento central y el progreso numérico de la interfaz.
+
+Referente histórico (Videojuegos Arcade): Se inspira directamente en las mecánicas clásicas de riesgo vs beneficio de los juegos arcade y sistemas de apuestas mecánicos, donde el jugador debe ponderar la avaricia frente a la pérdida total de los puntos acumulados.
 
 Link de P5js editable: https://editor.p5js.org/rocio.diaz3/sketches/dE06yuYpk
 
@@ -47,3 +52,6 @@ La mayor complicación técnica que tuve fue implementar el algoritmo de aleator
 <img width="513" height="643" alt="image" src="https://github.com/user-attachments/assets/4edded0d-a109-44fc-9ab2-2adbe8e6c95c" />
 
 *Diagrama de flujo*
+
+Rocío díaz
+Sección 3 Pensamiento Computacional
