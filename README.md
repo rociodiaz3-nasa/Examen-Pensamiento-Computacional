@@ -44,3 +44,6 @@ BOCETOS INICIALES:
 La decisión de diseño más relevante fue la implementación  de "riesgo contra recompensa" mediante la tecla **R**. Al permitir que el usuario elija retirarse a salvo tras superar el 100%, el proyecto dejó de ser un contador plano y pasó a ser un juego de estrategia. Asimismo, se optó por recalibrar el algoritmo de aleatoriedad a un 20% de probabilidad de fallo por pulsación.
 La mayor complicación técnica que tuve fue implementar el algoritmo de aleatoriedad una vez superado el 100%. Inicialmente, el sistema evaluaba el azar con una probabilidad de fallo muy alta (50% en cada pulsación), lo que provocaba que el juego terminara abruptamente de manera injusta y arruinara la experiencia. Resolver esto requirió  reestructurar las condicionales para acotar el rango numérico para bajar el riesgo a un 20% por intento, y asegurar  que al alcanzar el tope absoluto del 200% la derrota fuera obligatoria.
 
+<img width="513" height="643" alt="image" src="https://github.com/user-attachments/assets/4edded0d-a109-44fc-9ab2-2adbe8e6c95c" />
+
+*Diagrama de flujo*
