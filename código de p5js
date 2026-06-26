@@ -1,0 +1,126 @@
+let estado = 0; // 0: Inicio, 1: Juego, 2: Perdiste
+let porcentajeAmor = 0; // El porcentaje de carga (0 a 200)
+let sonidoPop; // Audio
+
+// función ya corriendo antes de empezar
+function preload() {
+  sonidoPop = loadSound('pop.mp3');  // Sonido de "pop"
+}
+
+function setup() {
+  createCanvas(600, 600);
+  textAlign(CENTER, CENTER);
+  rectMode(CENTER); // Centrar el cuadrado del corazón
+}
+
+function draw() {
+  background(252, 126, 126); //Fondo general rosado
+
+  // Condicionales
+  if (estado == 0) {
+    pantallaInicio();
+  } else if (estado == 1) {
+    pantallaJuego();
+  } else if (estado == 2) {
+    pantallaPerdiste();
+  }
+}
+
+// Pantalla de inicio y textos
+function pantallaInicio() {
+  fill(255);
+  textSize(45);
+  text("cuánto me AMAS?? <3", width / 2, height / 2 - 30);
+  textSize(16);
+  text("Instrucciones:\nPresiona ESPACIO para inflar\nHaz CLIC para empezar", width / 2, height / 2 + 30);
+  textSize(16);
+  text("PD: No seas tan intenso...", width / 2, height / 2 + 250);
+}
+
+// Pantalla de juego
+function pantallaJuego() {
+  // Aumento de tamaño del corazón
+  let tamano = map(porcentajeAmor, 0, 200, 70, 330);
+
+  // Fila de 4 símbolos fijos arriba
+  for (let i = 0; i < 4; i++) {
+    fill(255);
+    textSize(20);
+    text("<3", 160 + (i * 90), 50);
+  }
+  
+  // Dibujo de corazón
+  noStroke();
+  fill(255, 50, 100);
+  
+  push();
+  translate(width / 2, height / 2); 
+  rotate(radians(45)); 
+  rect(0, 0, tamano, tamano); 
+  ellipse(0, -tamano / 2, tamano, tamano); 
+  ellipse(-tamano / 2, 0, tamano, tamano); 
+  pop();
+
+  // Texto que muestra el porcentaje en pantalla
+  fill(255);
+  textSize(30);
+  text(floor(porcentajeAmor) + "% de Amor :D", width / 2, height - 100);
+
+  // Si llega a 100% o más muestra el menú de escape
+  if (porcentajeAmor >= 100) {
+    fill(255, 230, 0); // Texto de color amarillo para que resalte como advertencia
+    textSize(16);
+    text("se nota que me amas mucho!!\nPresiona R para retirarte a salvo y no arriesgarte", width / 2, height - 40);
+  }
+}
+
+// Pantalla de derrota y textos
+function pantallaPerdiste() {
+  fill(0, 0, 0, 160);
+  rect(width / 2, height / 2, width, height);
+
+  fill(255, 0, 0);
+  textSize(32);
+  text("FUE MUCHO AMOR, EXPLOTÉ!! :(", width / 2, height / 2 - 50);
+
+  fill(255);
+  textSize(16);
+  text("Presiona ENTER para reiniciar", width / 2, height / 2 + 50);
+}
+
+function mousePressed() {
+  if (estado == 0) {
+    estado = 1; // Cambia a la pantalla de juego
+  }
+}
+
+function keyPressed() {
+  if (estado == 1 && keyCode == 32) { 
+    porcentajeAmor = porcentajeAmor + 10; 
+
+    // sonido pop del corazón cuando se agranda
+    sonidoPop.play(); 
+    
+    if (porcentajeAmor > 100) {
+      let suerte = random(0, 10); 
+      if (suerte > 7 || porcentajeAmor >= 200) {
+        estado = 2; 
+      }
+    }
+  } 
+  
+  // Retirarse de forma segura con la letra 'R' o 'r'
+  if (estado == 1 && (key == 'r' || key == 'R')) {
+    // Solo si el porcentaje alcanzó o superó el 100%
+    if (porcentajeAmor >= 100) {
+      porcentajeAmor = 0; 
+      estado = 0;         
+    }
+  }
+  
+  // volver al menu principal
+  if (estado == 2 && keyCode == 13) { 
+    porcentajeAmor = 0; 
+    estado = 0; 
+  }
+}
